@@ -1,3 +1,0 @@
-## O dilema do uniforme: costurando uma capa com cortinas velhas da sala
-
-<p>Na manhã seguinte ao incidente, Ademar encarou o espelho da sala e percebeu que a vida de um herói radioativo exigia mais do que apenas zumbidos no corpo e olhos que mudavam de cor com o tempo: exigia uma identidade visual. O problema era que o orçamento do mês não previa trajes de super-herói sob medida, restando a ele improvisar com o que tinha em mãos. Seus olhos se fixaram, então, na pesada cortina de linho desbotado da sala de estar, um tecido gasto, mas com o caimento nobre de quem já havia enfrentado anos de sol e poeira.</p>
