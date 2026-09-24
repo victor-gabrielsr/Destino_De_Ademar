@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Saga de Ademar: O Herói por Acaso</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Outfit:wght@400;600;800&display=swap');
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #0f172a;
+        }
+        
+        .font-comic {
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+        }
+
+        .hero-glow {
+            text-shadow: 0 0 12px rgba(74, 222, 128, 0.6);
+        }
+
+        .chapter-card {
+            transition: all 0.3s ease;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(74, 222, 128, 0.2);
+        }
+    </style>
+</head>
+<text class="bg-slate-900 text-slate-100 min-h-screen pb-16">
+
+    <!-- Header / Banner -->
+    <header class="relative overflow-hidden bg-slate-800 border-b-4 border-green-500 py-12 px-4 shadow-2xl">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block bg-green-500 text-slate-950 font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider mb-3 shadow-lg">
+                Série Oficial
+            </span>
+            <h1 class="font-comic text-5xl md:text-7xl text-yellow-400 hero-glow tracking-wider mb-4">
+                A SAGA DE ADEMAR
+            </h1>
+            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto font-medium">
+                De funcionário de usina a protetor do bairro: acompanhe a incrível (e atrapalhada) jornada radioativa!
+            </p>
+        </div>
+    </header>
+
+    <!-- Contexto Geral (Capítulo Zero) -->
+    <main class="max-w-4xl mx-auto px-4 mt-10">
+        <section class="bg-slate-800/80 border-2 border-slate-700 rounded-2xl p-6 md:p-8 mb-12 shadow-xl backdrop-blur-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <i class="fa-solid font-bold fa-radiation text-2xl text-green-400"></i>
+                <h2 class="font-comic text-3xl text-green-400 tracking-wide">Capítulo Zero: O Acidente</h2>
+            </div>
+            <p class="text-slate-300 leading-relaxed">
+                Era uma terça-feira comum quando Ademar, funcionário exemplar da usina de reciclagem de materiais suspeitos, tropeçou e rolou morro abaixo em uma lagoa de lodo fluorescente.
+                Antes que pudesse se levantar, foi picado por uma aranha radioativa, uma cobra radioativa, mordido por um morcego radioativo e, para coroar a tarde, um urubu radioativo rasgou sua camisa.
+                Ademar sobreviveu... mas agora seu corpo emite um zumbido estranho e seus olhos mudam de cor conforme a previsão do tempo!
+            </p>
+        </section>
+
+        <!-- Sumário de Capítulos -->
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="font-comic text-4xl text-yellow-400 tracking-wide flex items-center gap-3">
+                <i class="fa-solid fa-book-open text-green-400"></i> Sumário dos Capítulos
+            </h2>
+            <span class="text-sm text-slate-400 font-semibold">11 Capítulos</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <!-- Cap 01 -->
+            <a href="capitulos/cap01.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 01</span>
+                    <i class="fa-solid fa-bed text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">O Despertar Bizarro</h3>
+                <p class="text-slate-400 text-sm">O despertar na manhã seguinte e a descoberta dos primeiros sintomas bizarros.</p>
+            </a>
+
+            <!-- Cap 02 -->
+            <a href="capitulos/cap02.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 02</span>
+                    <i class="fa-solid fa-cart-shopping text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Caos no Supermercado</h3>
+                <p class="text-slate-400 text-sm">A primeira tentativa desastrosa de ir ao supermercado com superpoderes incontroláveis.</p>
+            </a>
+
+            <!-- Cap 03 -->
+            <a href="capitulos/cap03.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 03</span>
+                    <i class="fa-solid fa-mask-ventilator text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">O Arqui-inimigo</h3>
+                <p class="text-slate-400 text-sm">O encontro inesperado com o arqui-inimigo: O Doutor Betoneira.</p>
+            </a>
+
+            <!-- Cap 04 -->
+            <a href="capitulos/cap04.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 04</span>
+                    <i class="fa-solid fa-broom text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Treinamento Improvisado</h3>
+                <p class="text-slate-400 text-sm">O treinamento secreto no quintal usando vassouras e garrafas PET.</p>
+            </a>
+
+            <!-- Cap 05 -->
+            <a href="capitulos/cap05.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 05</span>
+                    <i class="fa-solid fa-cat text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">O Resgate Felino</h3>
+                <p class="text-slate-400 text-sm">O resgate atrapalhado de um gato que não queria ser resgatado.</p>
+            </a>
+
+            <!-- Cap 06 -->
+            <a href="capitulos/cap06.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 06</span>
+                    <i class="fa-solid fa-newspaper text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Fama Repentina</h3>
+                <p class="text-slate-400 text-sm">O dia em que a imprensa local descobriu o paradeiro de Ademar.</p>
+            </a>
+
+            <!-- Cap 07 -->
+            <a href="capitulos/cap07.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 07</span>
+                    <i class="fa-solid fa-scissors text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">O Dilema do Uniforme</h3>
+                <p class="text-slate-400 text-sm">Costurando uma capa com as cortinas velhas da sala.</p>
+            </a>
+
+            <!-- Cap 08 -->
+            <a href="capitulos/cap08.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 08</span>
+                    <i class="fa-solid fa-crow text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">A Invasão dos Pombos</h3>
+                <p class="text-slate-400 text-sm">A invasão dos pombos mutantes liderados pelo Urubu Alfa vingativo.</p>
+            </a>
+
+            <!-- Cap 09 -->
+            <a href="capitulos/cap09.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 09</span>
+                    <i class="fa-solid fa-dumpster text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Batalha no Shopping</h3>
+                <p class="text-slate-400 text-sm">A batalha decisiva no estacionamento do shopping abandonado.</p>
+            </a>
+
+            <!-- Cap 10 -->
+            <a href="capitulos/cap10.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 10</span>
+                    <i class="fa-solid fa-battery-empty text-slate-500 group-hover:text-green-400 transition-colors"></i>
+                </div>
+                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Falha de Energia</h3>
+                <p class="text-slate-400 text-sm">O momento em que os poderes falham na pior hora possível.</p>
+            </a>
+
+            <!-- Cap 11 -->
+            <a href="capitulos/cap11.html" class="chapter-card bg-slate-800 border-2 border-yellow-500/50 hover:border-yellow-400 rounded-xl p-5 block group col-span-1 md:col-span-2 bg-gradient-to-r from-slate-800 to-slate-800/90">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="font-comic text-2xl text-yellow-400 group-hover:text-green-400 transition-colors">CAP. 11 (FINAL)</span>
+                    <i class="fa-solid fa-shield-halved text-yellow-400"></i>
+                </div>
+                <h3 class="font-bold text-yellow-300 text-lg mb-1 group-hover:text-yellow-200">O Protetor do Bairro</h3>
+                <p class="text-slate-300 text-sm">O desfecho heroico e o novo emprego de Ademar como protetor do bairro.</p>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-slate-500 text-sm">
+        <p>Projeto de História Interativa — As Aventuras de Ademar</p>
+    </footer>
+
+</body>
+</html>
