@@ -1,7 +1,27 @@
- Ao retorno do supermercado me deparo com algo inacreditavel , era meu arque inimigo , oh terrivel Dr Betonera 
-me deparando com meu inimigo me vejo em uma situação vuneravel onde não esta utilizando meu uniforme de heroi,
-se tivesse apenas o emfrentado revelaria minha identidade a ele prejudiando aqueles que são próximos a mim . 
- Ao chegar em casa e pegar meu uniforme vou ao encontro do Dr Betonera , ao lutar contra ele percebo que ainda sou fraco 
-não consigo ainda usar meus poderes como gostaria , por isso preciso de um treinamento , para me tornar mais mais forte 
- Chegando em casa derrotado da luta contra o Dr , me vejo na obrigação de me melhorar  para que não seja novamente derrotado.
- Sete dias após a derrota contra o Betonera , venho treinando e me melhorando para que não seja derrotado novamente 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Dr betonera</h1>
+    <hr>
+    <p> Ao retorno do supermercado me deparo com algo <i>inacreditavel</i>, era meu arque inimigo , oh terrivel <b>Dr Betonera</b>,<br>
+        me deparando com meu inimigo me vejo em uma situação vuneravel onde não esta utilizando meu uniforme de heroi,<br>
+        se tivesse apenas o emfrentado revelaria minha identidade a ele prejudiando aqueles que são próximos a mim .</p> <br>
+    <p> Ao chegar em casa e pegar meu uniforme vou ao encontro do Dr Betonera , ao lutar contra ele percebo que ainda<br>
+        sou fraco<br>
+        não consigo ainda usar meus poderes como gostaria , por isso preciso de um treinamento , para me tornar mais <br>
+        mais forte.</p> <br>
+    <P>Chegando em casa derrotado da luta contra o <i>Dr</i>, me vejo na obrigação de me melhorar para que não seja novamente <br>
+        derrotado.<br>
+        Sete dias após a derrota contra o Betonera , venho treinando e me melhorando para que não seja derrotado <br>
+        novamente.</P> 
+                <img src="imagens/cap03.jpg" alt="imagem mostrando hereoi ademar se preparando pra a proxima luta" width="500px" height="300px">
+</body>
+
+</html>
