@@ -1,8 +1,25 @@
-A invasão dos pombos mutantes liderados pelo Urubu Alfa Radioativo
+<!DOCTYPE html>
+<html lang="pt-br">
 
-quando ademar tentava se mover lentamente após ser mordido pelo morcego,
-radioativo mesmo com a vida se esvaindo de seu corpo ele lutando por sua vida e,
-fugindo da morte de forma meio que milagrosa,
-foi atacado por um urubu radioativo que o fez paralisar os nervos,
-saltando seus olhos para fora, suas entranhas começaram a ferver por,
-dentro e foi ai que ademar notou que não tinha mais chances de sobreviver.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>invasão dos pombos mutantes liderados pelo Urubu Alfa Radioativo</h1>
+
+    <p>Quando ademar tentava <strong>mover lentamente</strong> após ser mordido pelo morcego,
+        radioativo mesmo com a vida se esvaindo de seu corpo ele lutando por sua vida e,</p>
+    <p>fugindo da morte <em>de forma meio que milagrosa</em>,
+        foi atacado por um urubu radioativo que o fez paralisar os nervos,</p>
+    <p>saltando seus olhos para fora, suas entranhas começaram a ferver por,
+        dentro e foi ai que ademar notou que não tinha mais chances de sobreviver.</p>
+
+    <img src="imagens/cao08.jpg" alt="imagem do ademar sendo atacado pelo urubu radioativo">
+
+    <a href="cap09.html">clique aqui para ir para o capítulo 9</a>
+</body>
+
+</html>
