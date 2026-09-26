@@ -17,7 +17,7 @@
     padding: 5px;
     font-size: 45px; ">
         <div style="flex: 1;"></div>
-        <h1 style="
+        <h1 id="titulo" style="
     background-color:rgb(134, 178, 216);
     border-radius: 5px;"> Final No Shopping</h1>
         <div style="flex: 1;"></div>
@@ -25,7 +25,7 @@
     </div>
 
 
-    <img style="margin-left: 500px "src="imagens/cap09.jpg" alt="imagem capitulo 9" width="700">
+    <img src="imagens/cap09.jpg" alt="imagem capitulo 9" width="500">
     <p style="font-size: 30px;
     margin-left: 20px;
     background-color: rgb(176, 205, 230);
@@ -67,7 +67,7 @@
         bola final O urubu alfa regenera todo o seu
         braço até o cotovelo.É então ele prepara seu ataque mais poderodo é então...
     </p>
-    <a style="background-color: rgb(159, 205, 246);
+    <a id="link" style="background-color: rgb(159, 205, 246);
     border: 3px dashed blue;
     font-size: 32px;
     display: flex;
@@ -76,6 +76,11 @@
     justify-content: center;
     margin: 50px;
     padding: 15px;" href="cap11.html">Proximo capitulo...</a>
+
+    <script>
+        document.getElementById("titulo").textContent = "Novo titulo por JS!!!";
+        document.getElementById("link").style.backgroundColor = "red";
+    </script>
 </body>
 
 </html>
