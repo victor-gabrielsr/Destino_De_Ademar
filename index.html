@@ -1,196 +1,177 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Saga de Ademar: O Herói por Acaso</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Outfit:wght@400;600;800&display=swap');
-        
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #0f172a;
-        }
-        
-        .font-comic {
-            font-family: 'Bangers', cursive;
-            letter-spacing: 1px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Saga de Ademar: O Herói por Acaso</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{--green:#a78bfa;--yellow:#22d3ee;--bg:#0a0716;--card:#0f172a;}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',sans-serif;background:var(--bg);color:#e2e8f0;overflow-x:hidden}
+  .font-comic{font-family:'Bangers',cursive;letter-spacing:1.5px}
 
-        .hero-glow {
-            text-shadow: 0 0 12px rgba(74, 222, 128, 0.6);
-        }
+  /* Fundo radioativo */
+  .bg-fx{position:fixed;inset:0;z-index:-1;overflow:hidden;
+    background:radial-gradient(ellipse at 20% 0%,rgba(167,139,250,.14),transparent 50%),
+               radial-gradient(ellipse at 90% 30%,rgba(34,211,238,.08),transparent 45%),var(--bg)}
+  .bg-fx::before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(167,139,250,.35) 1.2px,transparent 1.5px);
+    background-size:38px 38px;opacity:.25;
+    mask-image:linear-gradient(to bottom,#000,transparent 70%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;animation:float 14s ease-in-out infinite}
+  .orb.a{width:340px;height:340px;background:#8b5cf6;top:8%;left:-80px}
+  .orb.b{width:280px;height:280px;background:#22d3ee;top:45%;right:-60px;animation-delay:-5s;opacity:.18}
+  @keyframes float{50%{transform:translate(30px,-40px) scale(1.1)}}
 
-        .chapter-card {
-            transition: all 0.3s ease;
-        }
+  /* Hero */
+  .title{background:linear-gradient(180deg,#a5f3fc,#22d3ee 55%,#0891b2);-webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 4px 0 #3b0764) drop-shadow(0 0 24px rgba(167,139,250,.45));transform:rotate(-2deg)}
+  .spin{animation:spin 18s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .pulse-ring{animation:pulse 2.4s ease-out infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(167,139,250,.55)}100%{box-shadow:0 0 0 26px rgba(167,139,250,0)}}
 
-        .chapter-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(74, 222, 128, 0.2);
-        }
-    </style>
+  /* Cards */
+  .glass{background:linear-gradient(145deg,rgba(30,41,59,.75),rgba(15,23,42,.75));
+    border:1px solid rgba(148,163,184,.15);backdrop-filter:blur(8px)}
+  .chapter{position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+  .chapter::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(167,139,250,.12),transparent 70%);
+    transform:translateX(-120%);transition:transform .7s}
+  .chapter:hover{transform:translateY(-6px) rotate(-.4deg);border-color:rgba(167,139,250,.7);box-shadow:0 18px 40px -12px rgba(167,139,250,.35)}
+  .chapter:hover::before{transform:translateX(120%)}
+  .num{position:absolute;right:-6px;bottom:-26px;font-size:7rem;line-height:1;color:rgba(148,163,184,.07);pointer-events:none;transition:color .3s}
+  .chapter:hover .num{color:rgba(167,139,250,.14)}
+  .icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;
+    background:rgba(167,139,250,.1);color:var(--green);border:1px solid rgba(167,139,250,.25);transition:all .3s}
+  .chapter:hover .icon{background:var(--green);color:#2e1065;transform:rotate(-8deg) scale(1.08)}
+  .final{border-color:rgba(34,211,238,.45);background:linear-gradient(120deg,rgba(8,60,80,.35),rgba(15,23,42,.85))}
+  .final .icon{background:rgba(34,211,238,.12);color:var(--yellow);border-color:rgba(34,211,238,.4)}
+  .final:hover{border-color:var(--yellow);box-shadow:0 18px 40px -12px rgba(34,211,238,.35)}
+  .final:hover .icon{background:var(--yellow);color:#083344}
+
+  /* Revelar ao rolar */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  #bar{position:fixed;top:0;left:0;height:4px;width:0;z-index:50;background:linear-gradient(90deg,#8b5cf6,#22d3ee);box-shadow:0 0 12px #a78bfa}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
 </head>
-<text class="bg-slate-900 text-slate-100 min-h-screen pb-16">
+<body class="min-h-screen">
+<div id="bar"></div>
+<div class="bg-fx"><div class="orb a"></div><div class="orb b"></div></div>
 
-    <!-- Header / Banner -->
-    <header class="relative overflow-hidden bg-slate-800 border-b-4 border-green-500 py-12 px-4 shadow-2xl">
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <span class="inline-block bg-green-500 text-slate-950 font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider mb-3 shadow-lg">
-                Série Oficial
-            </span>
-            <h1 class="font-comic text-5xl md:text-7xl text-yellow-400 hero-glow tracking-wider mb-4">
-                A SAGA DE ADEMAR
-            </h1>
-            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto font-medium">
-                De funcionário de usina a protetor do bairro: acompanhe a incrível (e atrapalhada) jornada radioativa!
-            </p>
-        </div>
-    </header>
+<!-- Hero -->
+<header class="relative px-4 pt-16 pb-20 text-center">
+  <div class="max-w-4xl mx-auto">
+    <div class="pulse-ring mx-auto mb-6 w-20 h-20 rounded-full grid place-items-center bg-violet-500/15 border border-violet-400/40">
+      <i class="fa-solid fa-radiation spin text-4xl text-violet-400"></i>
+    </div>
+    <span class="inline-flex items-center gap-2 bg-violet-400 text-slate-950 font-extrabold px-4 py-1 rounded-full text-xs uppercase tracking-[.2em] mb-5">
+      <i class="fa-solid fa-bolt"></i> Série Oficial
+    </span>
+    <h1 class="title font-comic text-6xl sm:text-7xl md:text-9xl leading-none mb-5">A Saga de<br>Ademar</h1>
+    <p class="text-violet-300/90 font-comic text-2xl md:text-3xl mb-4">O Herói por Acaso</p>
+    <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-9">
+      De funcionário de usina a protetor do bairro: acompanhe a incrível (e atrapalhada) jornada radioativa!
+    </p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="capitulos/cap01.html" class="bg-gradient-to-r from-violet-400 to-fuchsia-500 text-slate-950 font-extrabold px-7 py-3 rounded-xl shadow-lg shadow-violet-500/30 hover:scale-105 transition">
+        <i class="fa-solid fa-play mr-2"></i>Começar a ler
+      </a>
+      <a href="#capitulos" class="glass font-semibold px-7 py-3 rounded-xl hover:border-violet-400/60 transition">
+        <i class="fa-solid fa-list mr-2 text-violet-400"></i>Ver capítulos
+      </a>
+    </div>
+  </div>
+</header>
 
-    <!-- Contexto Geral (Capítulo Zero) -->
-    <main class="max-w-4xl mx-auto px-4 mt-10">
-        <section class="bg-slate-800/80 border-2 border-slate-700 rounded-2xl p-6 md:p-8 mb-12 shadow-xl backdrop-blur-sm">
-            <div class="flex items-center gap-3 mb-4">
-                <i class="fa-solid font-bold fa-radiation text-2xl text-green-400"></i>
-                <h2 class="font-comic text-3xl text-green-400 tracking-wide">Capítulo Zero: O Acidente</h2>
-            </div>
-            <p class="text-slate-300 leading-relaxed">
-                Era uma terça-feira comum quando Ademar, funcionário exemplar da usina de reciclagem de materiais suspeitos, tropeçou e rolou morro abaixo em uma lagoa de lodo fluorescente.
-                Antes que pudesse se levantar, foi picado por uma aranha radioativa, uma cobra radioativa, mordido por um morcego radioativo e, para coroar a tarde, um urubu radioativo rasgou sua camisa.
-                Ademar sobreviveu... mas agora seu corpo emite um zumbido estranho e seus olhos mudam de cor conforme a previsão do tempo!
-            </p>
-        </section>
+<main class="max-w-5xl mx-auto px-4">
 
-        <!-- Sumário de Capítulos -->
-        <div class="flex items-center justify-between mb-8">
-            <h2 class="font-comic text-4xl text-yellow-400 tracking-wide flex items-center gap-3">
-                <i class="fa-solid fa-book-open text-green-400"></i> Sumário dos Capítulos
-            </h2>
-            <span class="text-sm text-slate-400 font-semibold">11 Capítulos</span>
-        </div>
+  <!-- Capítulo Zero -->
+  <section class="reveal glass rounded-3xl p-7 md:p-10 mb-10 relative overflow-hidden">
+    <i class="fa-solid fa-radiation absolute -right-6 -top-6 text-[9rem] text-violet-400/5"></i>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="icon"><i class="fa-solid fa-radiation text-xl"></i></span>
+      <h2 class="font-comic text-3xl md:text-4xl text-violet-400">Capítulo Zero: O Acidente</h2>
+    </div>
+    <p class="text-slate-300 leading-relaxed text-lg">
+      Era uma terça-feira comum quando Ademar, funcionário exemplar da usina de reciclagem de materiais suspeitos, tropeçou e rolou morro abaixo em uma lagoa de lodo fluorescente.
+      Antes que pudesse se levantar, foi picado por uma aranha radioativa, uma cobra radioativa, mordido por um morcego radioativo e, para coroar a tarde, um urubu radioativo rasgou sua camisa.
+      Ademar sobreviveu... mas agora seu corpo emite um zumbido estranho e seus olhos mudam de cor conforme a previsão do tempo!
+    </p>
+    <div class="flex flex-wrap gap-2 mt-6 text-sm font-semibold">
+      <span class="px-3 py-1 rounded-full bg-violet-400/10 text-violet-300 border border-violet-400/20"><i class="fa-solid fa-spider mr-1"></i>Aranha</span>
+      <span class="px-3 py-1 rounded-full bg-violet-400/10 text-violet-300 border border-violet-400/20"><i class="fa-solid fa-staff-snake mr-1"></i>Cobra</span>
+      <span class="px-3 py-1 rounded-full bg-violet-400/10 text-violet-300 border border-violet-400/20"><i class="fa-solid fa-dove mr-1"></i>Urubu</span>
+      <span class="px-3 py-1 rounded-full bg-cyan-400/10 text-cyan-300 border border-cyan-400/20"><i class="fa-solid fa-eye mr-1"></i>Olhos meteorológicos</span>
+    </div>
+  </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <!-- Sumário -->
+  <div id="capitulos" class="flex items-end justify-between mb-8 scroll-mt-6">
+    <h2 class="font-comic text-4xl md:text-5xl text-cyan-400 flex items-center gap-3">
+      <i class="fa-solid fa-book-open text-violet-400"></i> Sumário
+    </h2>
+    <span class="glass text-sm text-slate-300 font-semibold px-3 py-1 rounded-full">11 capítulos</span>
+  </div>
 
-            <!-- Cap 01 -->
-            <a href="capitulos/cap01.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 01</span>
-                    <i class="fa-solid fa-bed text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">O Despertar Bizarro</h3>
-                <p class="text-slate-400 text-sm">O despertar na manhã seguinte e a descoberta dos primeiros sintomas bizarros.</p>
-            </a>
+  <div id="grid" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
+</main>
 
-            <!-- Cap 02 -->
-            <a href="capitulos/cap02.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 02</span>
-                    <i class="fa-solid fa-cart-shopping text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Caos no Supermercado</h3>
-                <p class="text-slate-400 text-sm">A primeira tentativa desastrosa de ir ao supermercado com superpoderes incontroláveis.</p>
-            </a>
+<footer class="mt-24 pb-10 text-center text-slate-500 text-sm">
+  <div class="w-24 h-1 mx-auto mb-6 rounded bg-gradient-to-r from-violet-400 to-cyan-400"></div>
+  <p>Projeto de História Interativa — As Aventuras de Ademar</p>
+</footer>
 
-            <!-- Cap 03 -->
-            <a href="capitulos/cap03.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 03</span>
-                    <i class="fa-solid fa-mask-ventilator text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">O Arqui-inimigo</h3>
-                <p class="text-slate-400 text-sm">O encontro inesperado com o arqui-inimigo: O Doutor Betoneira.</p>
-            </a>
+<script>
+const caps = [
+  ["fa-bed","O Despertar Bizarro","O despertar na manhã seguinte e a descoberta dos primeiros sintomas bizarros."],
+  ["fa-cart-shopping","Caos no Supermercado","A primeira tentativa desastrosa de ir ao supermercado com superpoderes incontroláveis."],
+  ["fa-mask-ventilator","O Arqui-inimigo","O encontro inesperado com o arqui-inimigo: O Doutor Betoneira."],
+  ["fa-broom","Treinamento Improvisado","O treinamento secreto no quintal usando vassouras e garrafas PET."],
+  ["fa-cat","O Resgate Felino","O resgate atrapalhado de um gato que não queria ser resgatado."],
+  ["fa-newspaper","Fama Repentina","O dia em que a imprensa local descobriu o paradeiro de Ademar."],
+  ["fa-scissors","O Dilema do Uniforme","Costurando uma capa com as cortinas velhas da sala."],
+  ["fa-crow","A Invasão dos Pombos","A invasão dos pombos mutantes liderados pelo Urubu Alfa vingativo."],
+  ["fa-dumpster","Batalha no Shopping","A batalha decisiva no estacionamento do shopping abandonado."],
+  ["fa-battery-empty","Falha de Energia","O momento em que os poderes falham na pior hora possível."],
+  ["fa-shield-halved","O Protetor do Bairro","O desfecho heroico e o novo emprego de Ademar como protetor do bairro."]
+];
+const grid = document.getElementById('grid');
+caps.forEach(([icon,title,desc],i)=>{
+  const n = String(i+1).padStart(2,'0'), last = i===caps.length-1;
+  const a = document.createElement('a');
+  a.href = `capitulos/cap${n}.html`;
+  a.className = `reveal chapter glass rounded-2xl p-6 block group ${last?'final md:col-span-2':''}`;
+  a.style.transitionDelay = `${(i%2)*80}ms`;
+  a.innerHTML = `
+    <span class="num font-comic">${n}</span>
+    <div class="relative flex items-start gap-4">
+      <span class="icon shrink-0"><i class="fa-solid ${icon}"></i></span>
+      <div class="flex-1">
+        <span class="font-comic text-xl tracking-wider ${last?'text-cyan-400':'text-violet-400'}">CAP. ${n}${last?' · FINAL':''}</span>
+        <h3 class="font-extrabold text-lg text-slate-100 mt-0.5 mb-1">${title}</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">${desc}</p>
+      </div>
+      <i class="fa-solid fa-arrow-right self-center text-slate-600 group-hover:text-violet-400 group-hover:translate-x-1 transition"></i>
+    </div>`;
+  grid.appendChild(a);
+});
 
-            <!-- Cap 04 -->
-            <a href="capitulos/cap04.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 04</span>
-                    <i class="fa-solid fa-broom text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Treinamento Improvisado</h3>
-                <p class="text-slate-400 text-sm">O treinamento secreto no quintal usando vassouras e garrafas PET.</p>
-            </a>
+// Revelar ao rolar
+const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-            <!-- Cap 05 -->
-            <a href="capitulos/cap05.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 05</span>
-                    <i class="fa-solid fa-cat text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">O Resgate Felino</h3>
-                <p class="text-slate-400 text-sm">O resgate atrapalhado de um gato que não queria ser resgatado.</p>
-            </a>
-
-            <!-- Cap 06 -->
-            <a href="capitulos/cap06.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 06</span>
-                    <i class="fa-solid fa-newspaper text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Fama Repentina</h3>
-                <p class="text-slate-400 text-sm">O dia em que a imprensa local descobriu o paradeiro de Ademar.</p>
-            </a>
-
-            <!-- Cap 07 -->
-            <a href="capitulos/cap07.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 07</span>
-                    <i class="fa-solid fa-scissors text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">O Dilema do Uniforme</h3>
-                <p class="text-slate-400 text-sm">Costurando uma capa com as cortinas velhas da sala.</p>
-            </a>
-
-            <!-- Cap 08 -->
-            <a href="capitulos/cap08.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 08</span>
-                    <i class="fa-solid fa-crow text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">A Invasão dos Pombos</h3>
-                <p class="text-slate-400 text-sm">A invasão dos pombos mutantes liderados pelo Urubu Alfa vingativo.</p>
-            </a>
-
-            <!-- Cap 09 -->
-            <a href="capitulos/cap09.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 09</span>
-                    <i class="fa-solid fa-dumpster text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Batalha no Shopping</h3>
-                <p class="text-slate-400 text-sm">A batalha decisiva no estacionamento do shopping abandonado.</p>
-            </a>
-
-            <!-- Cap 10 -->
-            <a href="capitulos/cap10.html" class="chapter-card bg-slate-800 border border-slate-700 hover:border-green-500 rounded-xl p-5 block group">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-green-400 group-hover:text-yellow-400 transition-colors">CAP. 10</span>
-                    <i class="fa-solid fa-battery-empty text-slate-500 group-hover:text-green-400 transition-colors"></i>
-                </div>
-                <h3 class="font-bold text-slate-100 mb-1 group-hover:text-green-300">Falha de Energia</h3>
-                <p class="text-slate-400 text-sm">O momento em que os poderes falham na pior hora possível.</p>
-            </a>
-
-            <!-- Cap 11 -->
-            <a href="capitulos/cap11.html" class="chapter-card bg-slate-800 border-2 border-yellow-500/50 hover:border-yellow-400 rounded-xl p-5 block group col-span-1 md:col-span-2 bg-gradient-to-r from-slate-800 to-slate-800/90">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-comic text-2xl text-yellow-400 group-hover:text-green-400 transition-colors">CAP. 11 (FINAL)</span>
-                    <i class="fa-solid fa-shield-halved text-yellow-400"></i>
-                </div>
-                <h3 class="font-bold text-yellow-300 text-lg mb-1 group-hover:text-yellow-200">O Protetor do Bairro</h3>
-                <p class="text-slate-300 text-sm">O desfecho heroico e o novo emprego de Ademar como protetor do bairro.</p>
-            </a>
-
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="mt-16 text-center text-slate-500 text-sm">
-        <p>Projeto de História Interativa — As Aventuras de Ademar</p>
-    </footer>
-
+// Barra de progresso
+const bar = document.getElementById('bar');
+addEventListener('scroll',()=>{
+  const h = document.documentElement;
+  bar.style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+},{passive:true});
+</script>
 </body>
 </html>
